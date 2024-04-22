@@ -29,7 +29,9 @@ return {
         "typescript-language-server",
         "tailwindcss-language-server",
         "vue-language-server",
-        "eslint-lsp"
+        "eslint-lsp",
+        "codespell",
+        "cspell",
       },
     },
   },
@@ -52,5 +54,40 @@ return {
       highlight = { enable = true },
       indent = { enable = true },
     },
+  },
+
+  {
+    "nvimtools/none-ls.nvim",
+    dependencies = { "mason.nvim", "davidmh/cspell.nvim", "nvimtools/none-ls-extras.nvim" },
+    event = { "BufReadPre", "BufNewFile" },
+    opts = function()
+      local cspell = require "cspell"
+      local ok, none_ls = pcall(require, "null-ls")
+      if not ok then
+        return
+      end
+
+      local b = none_ls.builtins
+
+      local sources = {
+        -- spell check
+        b.diagnostics.codespell,
+        -- cspell
+        cspell.diagnostics.with {
+          -- Set the severity to HINT for unknown words
+          diagnostics_postprocess = function(diagnostic)
+            diagnostic.severity = vim.diagnostic.severity["HINT"]
+          end,
+        },
+        cspell.code_actions,
+      }
+      -- Define the debounce value
+      local debounce_value = 200
+      return {
+        sources = sources,
+        debounce = debounce_value,
+        debug = true,
+      }
+    end,
   },
 }
