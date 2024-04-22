@@ -9,6 +9,9 @@ M.ui = {
   telescope = {
     style = "bordered",
   },
+  nvdash = {
+    load_on_startup = true,
+  },
   -- hl_override = {
   -- 	Comment = { italic = true },
   -- 	["@comment"] = { italic = true },
