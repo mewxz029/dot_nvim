@@ -10,6 +10,9 @@ return {
   -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
+    dependencies = {
+      { "antosha417/nvim-lsp-file-operations", config = true },
+    },
     config = function()
       require("nvchad.configs.lspconfig").defaults()
       require "configs.lspconfig"
@@ -28,7 +31,6 @@ return {
         "eslint_d",
         "typescript-language-server",
         "tailwindcss-language-server",
-        "vue-language-server",
         "eslint-lsp",
         "codespell",
         "cspell",
@@ -50,6 +52,7 @@ return {
         "json",
         "go",
         "vue",
+        "jsdoc",
       },
       highlight = { enable = true },
       indent = { enable = true },
