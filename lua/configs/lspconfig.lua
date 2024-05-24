@@ -61,27 +61,29 @@ local servers = {
         description = "Rename File",
       },
     },
+    filetypes = { "javascript", "typescript", "vue" },
     init_options = {
       plugins = {
         {
           name = "@vue/typescript-plugin",
           location = vue_language_server_path,
-          languages = { "vue" },
+          languages = { "javascript", "typescript", "vue" },
         },
       },
     },
   },
 
   volar = {
-    init_options = {
-      vue = {
-        hybridMode = false,
-      },
-    },
+    -- init_options = {
+    --   vue = {
+    --     hybridMode = false,
+    --   },
+    -- },
   },
   eslint = {},
   tailwindcss = {
-    autostart = false,
+    autostart = true,
+    filetypes = { "html", "vue" },
   },
 }
 

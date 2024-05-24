@@ -31,6 +31,7 @@ return {
         "eslint_d",
         "typescript-language-server",
         "tailwindcss-language-server",
+        "vue-language-server",
         "eslint-lsp",
         "codespell",
         "cspell",
