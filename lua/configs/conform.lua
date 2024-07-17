@@ -5,7 +5,10 @@ local options = {
     html = { "prettier" },
     typescript = { "eslint_d" },
     javascript = { "eslint_d" },
-    vue = { "prettier", "eslint_d" },
+    vue = {
+      -- { "prettierd", "prettier" },
+      "eslint_d",
+    },
     json = { "prettier" },
   },
 
